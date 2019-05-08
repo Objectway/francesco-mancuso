@@ -48,6 +48,24 @@ html {
   width: 80%;
   height: 80%;
 }
+.wrapper .ListItem {
+  display: flex;
+  margin: 3rem;
+}
+.wrapper .ListItem .ListItem__Date {
+  align-self: center;
+}
+.wrapper .ListItem .ListItem__Wrapper {
+  margin-left: 4rem;
+}
+.wrapper .ListItem .ListItem__Wrapper .ListItem__WrapperAmount {
+  margin-bottom: 1rem;
+}
+.wrapper .ListItem .ListItem__Delete {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
 
 @media screen and (min-width: 960px) {
   .wrapper .firstbox__field {

@@ -10,30 +10,16 @@
     <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="firstbox">
-            <div class="firstbox__field">
-                <div class="firstbox__field--x">
-                    <label for="amount"> AMOUNT </label>
-                    
-                    <input id="amount" type="number" min="1"> 
-                </div>
-                <div class="firstbox__field--x">
-                    <label for="amount"> DESCRIPTION </label>
-                    <input id="description" type="text">
-                </div>
-                
-            </div>
-            <div class="firstbox__button">
-                <button type="button">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
-        </div>
+    <div class="wrapper" ng-app='moneytracker'>
+        <mt-tracker>
+            
+        </mt-tracker>
     </div>
-
-  <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
-
+    <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+    <script src='components/mtList/mtList.js'></script>
+    <script src='components/mtListItem/mtListItem.js'></script>
+    <script src='components/mtFormInput/mtFormInput.js'></script>
+    <script src='components/mtTracker/mtTracker.js'></script>
 </body>
 
 </html>

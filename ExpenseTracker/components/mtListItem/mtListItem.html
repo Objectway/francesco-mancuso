@@ -1,0 +1,18 @@
+<div class="ListItem">
+    <div class="ListItem__Date" >
+        {{$ctrl.objectWay.data}}
+    </div>
+    <div class="ListItem__Wrapper">
+        <div class="ListItem__WrapperAmount">
+                {{$ctrl.objectWay.amount}}€
+        </div>
+        <div class="ListItem__WrapperDescription">
+                {{$ctrl.objectWay.description}}
+        </div>
+    </div>
+    
+    <div class="ListItem__Delete" ng-click="$ctrl.deleteItem()">
+        x
+    </div>
+
+</div>

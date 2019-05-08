@@ -1,0 +1,11 @@
+<div class="List">
+    <div class="List__Title">
+    {{$ctrl.title}} 
+    </div>
+    <div class="List__Elenco">
+        <mt-list-item ng-repeat="listaOggetto in $ctrl.lista track by $index" item-index="$index" object-way="listaOggetto">
+
+        </mt-list-item>
+    </div>
+    <!-- <button ng-click= '$ctrl.faiCose()'> Fai Cose</button> -->
+</div>

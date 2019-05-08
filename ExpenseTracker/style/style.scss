@@ -31,9 +31,7 @@
                             font-size: 2rem;
                         }
                     }
-                    
                 }
-                
             }
             &__button{
                 display: flex;
@@ -46,6 +44,24 @@
                     width: 80%;
                     height: 80%;
                 }
+            }
+        }
+        .ListItem{
+            display: flex;
+            margin: 3rem;
+            .ListItem__Date{
+                align-self: center;
+            }
+            .ListItem__Wrapper{
+                margin-left:  4rem;
+                .ListItem__WrapperAmount{
+                    margin-bottom: 1rem;
+                }
+            }
+            .ListItem__Delete{
+                display: flex;
+                flex-grow: 1;
+                justify-content: flex-end;
             }
         }
     }

@@ -1,0 +1,18 @@
+<div class="firstbox">
+        <div class="firstbox__field">
+            <div class="firstbox__field--x">
+                <label  for="amount"> AMOUNT </label>
+                
+                <input ng-model="amount" id="amount" type="number" min="1"> 
+            </div>
+            <div class="firstbox__field--x">
+                <label for="amount"> DESCRIPTION </label>
+                <input ng-model="description" id="description" type="text">
+            </div>
+            
+        </div>
+        <div class="firstbox__button">
+            <button type="button" ng-click="$ctrl.addItem()">
+                <i class="fas fa-plus"></i>
+            </button>
+</div>
