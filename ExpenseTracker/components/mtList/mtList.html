@@ -3,7 +3,9 @@
     {{$ctrl.title}} 
     </div>
     <div class="List__Elenco">
-        <mt-list-item ng-repeat="listaOggetto in $ctrl.lista track by $index" item-index="$index" object-way="listaOggetto">
+        <mt-list-item ng-repeat="listaOggetto in $ctrl.lista track by $index" 
+        item-index="$index" object-way="listaOggetto" 
+        delete-item-at-index="$ctrl.deleteItemAtIndex($index)">
 
         </mt-list-item>
     </div>

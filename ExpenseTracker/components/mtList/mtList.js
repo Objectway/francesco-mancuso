@@ -30,6 +30,9 @@ myApp
                 console.log('sto ascoltando per aggiungere '+amount+" "+description);
                 ctrl.lista.splice(0,0,oggetto);
             })
+            ctrl.deleteItemAtIndex=function(index){
+                ctrl.lista.splice(index,1);
+            }
         },
         templateUrl:'/components/mtList/mtList.html'
     })
