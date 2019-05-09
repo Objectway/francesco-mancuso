@@ -2,13 +2,17 @@ html {
   font-size: 10px;
 }
 
+a {
+  font-size: 2rem;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
   background: lightgrey;
 }
-.wrapper .firstbox {
+.wrapper .FormBox {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -16,27 +20,25 @@ html {
   padding: 1rem 1rem;
   box-sizing: border-box;
 }
-.wrapper .firstbox__field {
+.wrapper .FormBox__Input {
   display: flex;
   flex-direction: column;
   width: 85%;
 }
-.wrapper .firstbox__field .firstbox__field--x {
+.wrapper .FormBox__Input .FormBox__InputX {
   height: 50%;
   width: 100%;
 }
-.wrapper .firstbox__field .firstbox__field--x label {
+.wrapper .FormBox__Input .FormBox__InputX label {
   margin: 1rem 0;
   font-size: 3.5rem;
 }
-.wrapper .firstbox__field .firstbox__field--x input {
+.wrapper .FormBox__Input .FormBox__InputX input {
   width: 100%;
   height: 50%;
-}
-.wrapper .firstbox__field .firstbox__field--x input:focus {
   font-size: 2rem;
 }
-.wrapper .firstbox__button {
+.wrapper .FormBox__Add {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,26 +46,28 @@ html {
   height: 100%;
   padding: 1rem 1rem 0rem;
 }
-.wrapper .firstbox__button button {
+.wrapper .FormBox__Add button {
   width: 80%;
   height: 80%;
 }
 .wrapper .ListItem {
-  display: flex;
-  margin: 3rem;
+  display: grid;
+  grid-template-columns: 20rem auto 5rem;
+  grid-template-rows: auto auto;
+  font-size: 4rem;
 }
-.wrapper .ListItem .ListItem__Date {
+.wrapper .ListItem__Delete {
   align-self: center;
+  justify-self: center;
 }
-.wrapper .ListItem .ListItem__Wrapper {
-  margin-left: 4rem;
+.wrapper .ListItem--red {
+  border: red solid 1rem;
 }
-.wrapper .ListItem .ListItem__Wrapper .ListItem__WrapperAmount {
-  margin-bottom: 1rem;
+.wrapper .ListItem--green {
+  border: green solid 1rem;
 }
-.wrapper .ListItem .ListItem__Delete {
-  display: flex;
-  justify-content: flex-end;
+.wrapper .List__Total {
+  font-size: 4rem;
 }
 
 @media screen and (min-width: 960px) {
@@ -89,6 +93,13 @@ html {
     height: 11.5rem;
     width: 100%;
   }
+}
+.FormBox--positive {
+  background: green;
+}
+
+.FormBox--negative {
+  background: red;
 }
 
 /*# sourceMappingURL=style.css.map */

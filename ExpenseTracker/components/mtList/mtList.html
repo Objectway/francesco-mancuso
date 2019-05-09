@@ -3,11 +3,19 @@
     {{$ctrl.title}} 
     </div>
     <div class="List__Elenco">
-        <mt-list-item ng-repeat="listaOggetto in $ctrl.lista track by $index" 
-        item-index="$index" object-way="listaOggetto" 
-        delete-item-at-index="$ctrl.deleteItemAtIndex($index)">
+         <!-- <mt-list-item ng-repeat="listaOggetto in $ctrl.lista track by $index" 
+        item-index="$index" elemento-lista="listaOggetto">
+        </mt-list-item> -->
+        <a ng-repeat="ids in $ctrl.listaIds" ui-sref='detail({itemId:ids})' 
+        ui-sref-active="List__ElencoDetail--active">
+        <mt-list-item-id  item-id="ids" >
 
-        </mt-list-item>
+        </mt-list-item-id>
+        </a>
+        
     </div>
     <!-- <button ng-click= '$ctrl.faiCose()'> Fai Cose</button> -->
+    <div class="List__Total" >
+        Total: {{$ctrl.total}}
+    </div>
 </div>

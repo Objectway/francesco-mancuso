@@ -1,23 +1,26 @@
-    html{
+html{
         font-size: 10px;
-    }
+}
+a{
+    font-size: 2rem;
+}
     .wrapper{
         display: flex;
         flex-direction: column;
         width: 100%;
         background: lightgrey;
-        .firstbox{
+        .FormBox{
             display: flex;
             justify-content: space-between;
             width: 100%;
             height: 25rem;
             padding: 1rem 1rem;
             box-sizing: border-box;
-            &__field{
+            &__Input{
                 display: flex;
                 flex-direction: column;
                 width: 85%;
-                .firstbox__field--x{
+                .FormBox__InputX{
                     height: 50%;
                     width: 100%;
                     label{
@@ -27,13 +30,13 @@
                     input{
                         width: 100%;
                         height: 50%;
-                        &:focus{
-                            font-size: 2rem;
-                        }
+
+                        font-size: 2rem;
+                        
                     }
                 }
             }
-            &__button{
+            &__Add{
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -47,21 +50,23 @@
             }
         }
         .ListItem{
-            display: flex;
-            margin: 3rem;
-            .ListItem__Date{
-                align-self: center;
+            display: grid;
+            grid-template-columns: 20rem auto 5rem;
+            grid-template-rows: auto auto;
+            font-size: 4rem;
+            &__Delete{
+                align-self:center;
+                justify-self: center;
             }
-            .ListItem__Wrapper{
-                margin-left:  4rem;
-                .ListItem__WrapperAmount{
-                    margin-bottom: 1rem;
-                }
-            }
-            .ListItem__Delete{
-                display: flex;
-                justify-content: flex-end;
-            }
+        }
+        .ListItem--red{
+            border: red solid 1rem;
+        }
+        .ListItem--green{
+            border: green solid 1rem;
+        }
+        .List__Total{
+            font-size: 4rem;
         }
     }
 
@@ -91,4 +96,11 @@
         }
     }
     
+}
+
+.FormBox--positive{
+    background: green;
+}
+.FormBox--negative{
+    background: red;
 }

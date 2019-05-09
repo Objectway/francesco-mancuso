@@ -1,0 +1,18 @@
+<div class="FormBox" ng-class="{'FormBox--positive':$ctrl.isPositive,'FormBox--negative':!$ctrl.isPositive}">
+    <div class="FormBox__Add">
+        <button type="button" ng-click="$ctrl.verify()"> Cambia </button>
+    </div>
+    <div class="FormBox__Input">
+        <div class="FormBox__InputX">
+            <label  for="amount"> AMOUNT </label>
+            <input ng-model="amount" id="amount" type="number"> 
+        </div>
+        <div class="FormBox__InputX">
+            <label for="amount"> DESCRIPTION </label>
+            <input ng-model="description" id="description" type="text">
+        </div>
+    </div>
+    <div class="FormBox__Add">
+        <button type="button" ng-click="$ctrl.addItem3()"> + </button>
+    </div>
+</div>

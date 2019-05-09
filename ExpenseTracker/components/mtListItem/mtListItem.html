@@ -1,17 +1,19 @@
-<div class="ListItem">
+<div class="ListItem" 
+ng-class="{ 'ListItem--green':$ctrl.itemId.isPositive, 
+'ListItem--red':!$ctrl.itemId.isPositive} ">
     <div class="ListItem__Date" >
-        {{$ctrl.objectWay.data}}
+        {{$ctrl.itemId.data}}
     </div>
     <div class="ListItem__Wrapper">
         <div class="ListItem__WrapperAmount">
-                {{$ctrl.objectWay.amount}}€
+                {{$ctrl.itemId.amount}}€
         </div>
         <div class="ListItem__WrapperDescription">
-                {{$ctrl.objectWay.description}}
+                {{$ctrl.itemId.description}}
         </div>
     </div>
     
-    <div class="ListItem__Delete" ng-click="$ctrl.deleteItem2()">
+    <div class="ListItem__Delete" ng-click="$ctrl.deleteItem3()">
         x
     </div>
 
