@@ -20,11 +20,11 @@ myApp.
         },
         {
             name:'detail',
-            url:'list/{itemId}',
+            url:'/list/{itemId}',
             component: 'mtListItemId',
-            reslove:{
-                itemId:function($transitions$){
-                    return $transitions$.params().itemId
+            resolve:{
+                itemId:function($transition$){
+                    return $transition$.params().itemId
                 }
             }
         }

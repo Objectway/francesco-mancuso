@@ -1,0 +1,16 @@
+<div ng-init="filmSelezionato=null">
+    
+    <div class="Lista" ng-repeat="oggetto in $ctrl.lista">
+        <div class="Lista__Item">
+            <div class="Lista__ItemTitolo">
+                    {{oggetto.titolo}}
+                </div>
+                <div class="Lista__ItemVoto">
+                    {{oggetto.voto}}
+            </div>
+        </div>
+    </div>
+    <ft-film-detail imdb-id="filmSelezionato">
+
+    </ft-film-detail>
+</div>
