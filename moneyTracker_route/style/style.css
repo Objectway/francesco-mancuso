@@ -1,0 +1,89 @@
+.AmountForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr 50px;
+  grid-template-rows: 1fr 1fr;
+  padding: 3px; }
+
+.AmountForm--positive {
+  background: green; }
+
+.AmountForm--negative {
+  background: red; }
+
+.AmountForm__Element {
+  padding: 3px; }
+
+.AmountForm__Element--amount {
+  grid-area: 1 / 1 / 2 / 3; }
+
+@media (min-width: 961px) {
+  .AmountForm__Element--amount {
+    grid-area: 1 / 1 / 3 / 2; } }
+
+.AmountForm__Element--description {
+  grid-area: 2 / 1 / 3 / 3; }
+
+@media (min-width: 961px) {
+  .AmountForm__Element--description {
+    grid-area: 1 / 2 / 3 / 3; } }
+
+.AmountForm__ElementLabel {
+  display: block; }
+
+.AmountForm__ElementInput {
+  display: block;
+  width: 90%; }
+
+.AmountForm__Button {
+  grid-area: 1 / 3 / 3 / 4;
+  background: red;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px; }
+
+@media (min-width: 961px) {
+  .AmountForm__Button {
+    grid-area: 1 / 3 / 3 / 4; } }
+
+.List {
+  margin-top: 16px;
+  border-top: 1px solid #ddd; }
+
+.List__Title {
+  font-size: 1.5rem; }
+
+.List__Elenco {
+  margin-top: 8px; }
+
+.ListItem {
+  margin-bottom: 8px;
+  background: #ddd;
+  padding: 8px;
+  display: grid;
+  grid-template-columns: 60px auto 50px;
+  grid-template-rows: auto auto; }
+
+.ListItem--positive {
+  border-left: 4px solid green; }
+
+.ListItem--negative {
+  border-left: 4px solid red; }
+
+.ListItem__Date {
+  grid-area: 1 / 1 / 3 / 2; }
+
+.ListItem__Amount {
+  font-size: 1.6rem;
+  grid-area: 1 / 2 / 2 / 3; }
+
+.ListItem__Description {
+  font-size: 1.1rem;
+  grid-area: 2 / 2 / 3 / 3; }
+
+.ListItem__Delete {
+  color: red;
+  font-size: 2rem;
+  grid-area: 1 / 3 / 1 / 4;
+  cursor: pointer; }

@@ -1,16 +1,15 @@
-<div ng-init="filmSelezionato=null">
-    
+<div>
     <div class="Lista" ng-repeat="oggetto in $ctrl.lista">
-        <div class="Lista__Item">
+        <a ui-sref="film({filmId:oggetto.id})" ui-sref-active="Lista__Item--active" class="Lista__Item">
             <div class="Lista__ItemTitolo">
                     {{oggetto.titolo}}
-                </div>
-                <div class="Lista__ItemVoto">
+            </div>
+            <div class="Lista__ItemVoto">
                     {{oggetto.voto}}
             </div>
-        </div>
+        </a>
     </div>
-    <ft-film-detail imdb-id="filmSelezionato">
+    <ui-view>
 
-    </ft-film-detail>
+    </ui-view>
 </div>

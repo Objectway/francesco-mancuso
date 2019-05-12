@@ -1,0 +1,13 @@
+<div class="ListItem" ng-class="{ 'ListItem--positive': $ctrl.itemData.isPositive, 'ListItem--negative': !$ctrl.itemData.isPositive }">
+
+  <div class="ListItem__Date">
+    <span>DD</span>
+    <span>MM</span>
+    <span>YYYY</span>
+  </div>
+  <div class="ListItem__Amount">{{$ctrl.itemData.amount}}</div>
+  <div class="ListItem__Description">{{$ctrl.itemData.description}}</div>
+
+  <div ng-if="$ctrl.showDeleteInView" class="ListItem__Delete" ng-click="$ctrl.deleteItem()">X</div>
+
+</div>

@@ -10,13 +10,11 @@
     </head>
     <body>
         <div class="Wrapper" ng-app ="filmtracker">
-            <ft-input-form>
-
-            </ft-input-form>
-            <ft-list>
-
-            </ft-list>
-            
+            <div class="Menu">
+                <a ui-sref="insert" ui-sref-active="Menu__Item--active" class="Menu__Item"> Insert </a>
+                <a ui-sref="list" ui-sref-active="Menu__List--active" class="Menu__List"> List </a>
+            </div>
+            <ui-view></ui-view>
         </div>
         <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
         <script src="routes.js"></script>
@@ -25,5 +23,6 @@
         <script src="components/ftInputForm/ftInputForm.js"></script>
         <script src="components/ftList/ftList.js"></script>
         <script src="components/ftFilmDetail/ftFilmDetail.js"></script>
+        <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
     </body>
 </html> 

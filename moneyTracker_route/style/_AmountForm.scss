@@ -1,0 +1,64 @@
+.AmountForm {
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 50px;
+  grid-template-rows: 1fr 1fr;
+
+  padding: 3px;
+
+  &--positive {
+    background: green;
+  }
+
+  &--negative {
+    background: red;
+  }
+
+  &__Element {
+
+    padding: 3px;
+
+    &--amount {
+      grid-area: 1 / 1 / 2 / 3;
+
+      @media (min-width: 961px) {
+        grid-area: 1 / 1 / 3 / 2;
+      }
+
+    }
+
+    &--description {
+      grid-area: 2 / 1 / 3 / 3;
+
+      @media (min-width: 961px) {
+        grid-area: 1 / 2 / 3 / 3;
+      }
+
+    }
+  }
+
+  &__ElementLabel {
+    display: block;
+  }
+
+  &__ElementInput {
+    display: block;
+    width: 90%;
+  }
+
+  &__Button {
+    grid-area: 1 / 3 / 3 / 4;
+    background: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+
+    @media (min-width: 961px) {
+      grid-area: 1 / 3 / 3 / 4;
+    }
+
+  }
+
+}
