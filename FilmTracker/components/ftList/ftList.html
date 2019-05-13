@@ -1,6 +1,6 @@
 <div>
     <div class="Lista" ng-repeat="oggetto in $ctrl.lista">
-        <a ui-sref="film({filmId:oggetto.id})" ui-sref-active="Lista__Item--active" class="Lista__Item">
+        <a  ui-sref="film({filmId:oggetto.id})" ui-sref-active="Lista__Item--active" class="Lista__Item">
             <div class="Lista__ItemTitolo">
                     {{oggetto.titolo}}
             </div>
@@ -9,7 +9,7 @@
             </div>
         </a>
     </div>
-    <ui-view>
+    <ui-view imbd-id='ciao'>
 
     </ui-view>
 </div>

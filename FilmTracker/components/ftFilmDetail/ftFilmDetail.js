@@ -5,6 +5,7 @@ myApp
         },
         controller:function($scope,ftSearchFilm){
             let ctrl=this;
+            ctrl.imdbId='ciao';
             function getFilmData(){
                 if(ctrl.imdbId){
                     ftSearchFilm.getFilmById(ctrl.imdbId)
@@ -14,8 +15,7 @@ myApp
                     .catch(error => {
                         console.log(error)
                     })
-                }
-                
+                } 
             }
             ctrl.$onInit=function(){
                 getFilmData();
@@ -24,7 +24,7 @@ myApp
                 getFilmData();
             }
             ctrl.getFilmById=ftSearchFilm.getFilmById("tt1037492");
-            console.log($scope.filmId)
+            console.log(ctrl.imdbId)
         },
         templateUrl:'./components/ftFilmDetail/ftFilmDetail.html'
     })
