@@ -8,10 +8,14 @@
         <link rel="stylesheet" type="text/css" href="style/style.css">
     </head>
     <body>
-        <div class="Menu" ng-app="musictracker">
-            <mtr-search-insert-form></mtr-search-insert-form>
-            <mtr-manual-list></mtr-manual-list>
+        <div class="Wrapper" ng-app="musictracker">
+            <div class="Menu">
+                    <a ui-sref="aggiungi" ui-sref-active="Menu__Item--active" class="Menu__Item"> Aggiungi </a>
+                    <a ui-sref="lista" ui-sref-active="Menu__List--active" class="Menu__List"> Lista </a>
+            </div>
+            <ui-view></ui-view>
         </div>
+        
         <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
         <script src="app.js"></script>
         <script src="./components/mtrManualInsertForm/mtrManualInsertForm.js"></script>
@@ -22,5 +26,6 @@
         <script src="services/mtrSearchService.js"></script>
         <script src="components/mtrSearchInsertForm/mtrSearchInsertForm.js"></script>
         <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+        <script src="components/mtrArtistInformation/mtrArtistInformation.js"></script>
     </body>
 </html>

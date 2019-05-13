@@ -7,7 +7,7 @@
        <button ng-click="$ctrl.cerca()"> Cerca </button> 
     </div>
     <div class="SearchForm__Risultato" ng-repeat=" search in $ctrl.Search"
-    ng-click= "$ctrl.selected = search " ng-class="{'SearchForm__Risultato--active': search.collectionId==$ctrl.selected.collectionId}"" >
+    ng-click= "$ctrl.selected = search " ng-class="{'SearchForm__Risultato--active': search.collectionId==$ctrl.selected.collectionId}" >
         
                 <p>Artista: {{search.artistName}}
                     Album: {{search.collectionCensoredName}}</p>
