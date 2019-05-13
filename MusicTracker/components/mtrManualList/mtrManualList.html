@@ -1,0 +1,9 @@
+<div class="List" >
+    <ul ng-repeat="element in $ctrl.lista track by $index" ng-class="{'List__Element--even': $index%2==0}">
+        <li>{{element.Artista}}</li>
+        <li>{{element.Album}}</li>
+        <li>{{element.Tracce}}</li>
+        <li>{{element.Prezzo | mtrCurrency | currency:"€"}}</li>
+        <li>{{element.Voto}}</li>
+    </ul>
+</div>
