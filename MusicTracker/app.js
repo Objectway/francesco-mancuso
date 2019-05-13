@@ -5,7 +5,7 @@ myApp
             {
                 name:'default',
                 url:'',
-                component:'mtrSearchInsertForm'
+                redirectTo:'aggiungi'
             },
             {
                 name:'aggiungi',
