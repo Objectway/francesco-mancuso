@@ -3,7 +3,7 @@ myApp
         bindings:{
 
         },
-        controller:function(mtrSearchService){
+        controller:function(mtrSearchService,mtrManualListService){
             const ctrl=this;
             ctrl.Search=null;
             // ctrl.listarisultati=mtrSearchService.getListaRisultati();
@@ -14,6 +14,19 @@ myApp
                     ctrl.Search=responseJson.results;
                     console.log(ctrl.Search)
             })};
+            ctrl.salvainlista=function(){
+                let elemento={
+                    Artista:ctrl.selected.artistName,
+                    ArtistaId:ctrl.selected.artistId,
+                    Album:ctrl.selected.collectionName,
+                    Tracce:ctrl.selected.trackCount,
+                    Prezzo:ctrl.selected.collectionPrice,
+                    Voto:ctrl.voto
+                }
+                ctrl.titolo="";
+                ctrl.cerca();
+                mtrManualListService.AddDati(elemento)
+            }
         }
         },
         templateUrl:'./components/mtrSearchInsertForm/mtrSearchInsertForm.html'

@@ -3,6 +3,7 @@ myApp
         let lista=[
             {   
                 Artista:"Ed Sheeran",
+                ArtistaId: "bho",
                 Album: "L'ultimo",
                 Tracce: 10,
                 Prezzo: 100,
@@ -10,6 +11,7 @@ myApp
             },
             {
                 Artista:"Imagine Dragons",
+                ArtistaId: "bho",
                 Album: "L'ultimo",
                 Tracce: 12,
                 Prezzo: 200,
