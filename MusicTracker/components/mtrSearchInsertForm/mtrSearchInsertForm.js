@@ -35,7 +35,7 @@ myApp
                 }
                 
                 ctrl.titolo="";
-                ctrl.cerca();
+                ctrl.Search=[];
                 mtrManualListService.AddDati(elemento)
             }
         }}

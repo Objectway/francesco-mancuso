@@ -21,20 +21,19 @@ myApp
                 },
                 getArtistInformation:function(artistaId){
                     let deferred=$q.defer();
-                    let searchEndpoint=endpoint2+searchString
+                    let searchEndpoint=endpoint2+artistaId
                     $http({
                         method:'GET',
                         url:searchEndpoint
                     })
                         .then(function(responseJson){
-                            deferred.resolve(responseJson.data);
+                            deferred.resolve(responseJson);
                         })
                         .catch(function(error){
                             deferred.reject(error)
                         })
                     return deferred.promise;
                 }
-
             }
             
         }

@@ -1,11 +1,15 @@
 <div class="List" >
     <ul ng-repeat="element in $ctrl.lista track by $index" ng-class="{'List__Element--even': $index%2==0}">
-        <li>Artista: {{element.Artista}}</li>
+        <li>
+            <a ui-sref="artista({artistId:element.ArtistaId})" 
+            ui-sref-active="Lista__Item--active" class="List__ElementArtista">Artista: {{element.Artista}}</a>
+        </li>
         <li>ArtistaId: {{element.ArtistaId}}</li>
         <li>Album: {{element.Album}}</li>
         <li>Tracce: {{element.Tracce}}</li>
         <li>Prezzo: {{element.Prezzo | mtrCurrency | currency:"€"}}</li>
         <li>Voto: <mtr-ranking-star voto-star="element.Voto"></mtr-ranking-star> </li>
     </ul>
-    <mtr-arist-information artista-id="element.ArtistaId"></mtr-arist-information>
+    <ui-view></ui-view>
+    
 </div>

@@ -1,17 +1,10 @@
 myApp
     .factory('mtrManualListService',[function(){
         let lista=[
-            {   
-                Artista:"Ed Sheeran",
-                ArtistaId: "bho",
-                Album: "L'ultimo",
-                Tracce: 10,
-                Prezzo: 100,
-                Voto: 5,
-            },
+            
             {
                 Artista:"Imagine Dragons",
-                ArtistaId: "bho",
+                ArtistaId: 358714030,
                 Album: "L'ultimo",
                 Tracce: 12,
                 Prezzo: 200,
