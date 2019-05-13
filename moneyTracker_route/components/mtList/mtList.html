@@ -1,0 +1,9 @@
+<div class="List">
+  <div class="List__Title">{{mtListCtrl.title}}</div>
+  <div class="List__Elenco">
+    <a ng-repeat="id in mtListCtrl.listaIds" ui-sref="detail({ itemId: id })">
+      <mt-list-item-id item-id="id"></mt-list-item-id>
+    </a>
+  </div>
+  <div class="List__Total">Total: {{mtListCtrl.total}}</div>
+</div>

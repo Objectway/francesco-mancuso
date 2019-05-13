@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>MoneyTracker</title>
+</head>
+
+<body>
+
+<div class="wrapper" ng-app="moneyTracker">
+
+  <div class="Menu">
+    <a ui-sref="insert" ui-sref-active="Menu__Item--active" class="Menu__Item">Insert</a>
+    <a ui-sref="list" ui-sref-active="Menu__Item--active" class="Menu__Item">List</a>
+  </div>
+
+  <ui-view></ui-view>
+
+
+<!--  <mt-form-transaction></mt-form-transaction>-->
+<!--  <mt-list title="'Lista da factory'"></mt-list>-->
+
+
+</div>
+
+<link rel="stylesheet" type="text/css" href="style/style.css">
+
+<script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+<script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+
+<script src="services/routes.js"></script>
+
+<script src="components/mtList/mtList.js"></script>
+<script src="components/mtTracker/mtTracker.js"></script>
+<script src="components/mtListItem/mtListItem.js"></script>
+<script src="components/mtListItemId/mtListItemId.js"></script>
+<script src="components/mtFormInput/mtFormInput.js"></script>
+<script src="components/mtFormTransaction/mtFormTransaction.js"></script>
+
+<script src="services/mtServiceList.js"></script>
+
+</body>
+
+</html>

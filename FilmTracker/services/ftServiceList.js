@@ -21,6 +21,7 @@ myApp
             AddFilm:function(sette){
                 if(!sette.visto){
                     let setten={
+                        id:sette.id,
                         titolo:sette.titolo,
                     }
                     lista.splice(0,0,setten)
@@ -29,5 +30,6 @@ myApp
                         lista.splice(0,0,sette);
                 }
             }
+            
         }
     }])
