@@ -1,0 +1,16 @@
+"use strict";
+exports.__esModule = true;
+var auto = require("./Auto");
+var parco = require("./ParcoMacchine");
+var cliente = require("./Cliente");
+var PM1 = new parco.ParcoMacchine();
+var A1 = new auto.Auto("AAA", "1");
+var A2 = new auto.Auto("BBB", "2");
+var A3 = new auto.Auto("CCC", "3");
+var C1 = new cliente.Cliente(1, "Mario", "Rossi");
+var C2 = new cliente.ClienteBusiness(2, "Luca", "Bianchi", 1000);
+PM1.addAuto(A1);
+PM1.addAuto(A2);
+PM1.addAuto(A3);
+PM1.mostraAuto();
+console.log(C2.getSconto());
