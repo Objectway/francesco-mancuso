@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"> 
+        <title>MusicTracker</title>
+        <link rel="stylesheet" type="text/css" href="style/Reset.css">
+        <link rel="stylesheet" type="text/css" href="style/style.css">
+    </head>
+    <body>
+        <div class="Wrapper" ng-app="musictracker">
+            <div class="Menu">
+                    <a ui-sref="aggiungi" ui-sref-active="Menu__Item--active" class="Menu__Item"> Aggiungi </a>
+                    <a ui-sref="lista" ui-sref-active="Menu__List--active" class="Menu__List"> Lista </a>
+            </div>
+            <ui-view></ui-view>
+        </div>
+        
+        <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+        <script src="app.js"></script>
+        <script src="./components/mtrManualInsertForm/mtrManualInsertForm.js"></script>
+        <script src="services/mtrManualListService.js"></script>
+        <script src="./components/mtrManualList/mtrManualList.js"></script>
+        <script src="./filters/mtrCurrency.js"></script>
+        <script src="components/mtrRankingStar/mtrRankingStar.js"></script>
+        <script src="services/mtrSearchService.js"></script>
+        <script src="components/mtrSearchInsertForm/mtrSearchInsertForm.js"></script>
+        <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+        <script src="components/mtrArtistInformation/mtrArtistInformation.js"></script>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<div class="SearchForm">
+    <div class="SearchForm__Titolo">
+        <label for="titolo"> Titolo </label>
+        <input type="text" id="titolo" ng-model="$ctrl.titolo">
+    </div>
+    <div class="SearchForm__Search">
+       <button ng-click="$ctrl.cerca()"> Cerca </button> 
+    </div>
+    <div class="SearchForm__Risultato" ng-repeat=" search in $ctrl.Search"
+    ng-click= "$ctrl.selected = search " ng-class="{'SearchForm__Risultato--active': search.collectionId==$ctrl.selected.collectionId}" >
+        
+                <p>Artista: {{search.artistName}}
+                    Album: {{search.collectionCensoredName}}</p>
+    </div>
+    <div class="SearchForm__Voto">
+        <label for="voto{{voti}}" ng-repeat="voti in [0,1,2,3,4,5]">
+        <span> {{voti}}  </span>
+        <input type="radio" id="voto{{voti}}" name="voto" ng-value="voti" ng-model="$ctrl.voto">
+        </label>
+    </div>
+    <div class="SearchForm__Salva">
+        <button ng-click="$ctrl.salvainlista()"> Salva </button>
+    </div>
+</div>
