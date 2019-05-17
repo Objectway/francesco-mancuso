@@ -1,5 +1,5 @@
 {
-  "name": "esercizionoleggioauto",
+  "name": "provagulp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,8 +8,8 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@types/node": "^12.0.2",
-    "node-fetch": "^2.5.0"
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2"
   }
 }

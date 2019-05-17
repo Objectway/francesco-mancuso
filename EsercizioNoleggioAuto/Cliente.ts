@@ -1,3 +1,6 @@
+///<reference path="./test.d.ts"/>
+import * as data from "./clienti.json"
+
 export class Cliente{
     id:number;
     name:string;
@@ -7,8 +10,8 @@ export class Cliente{
         this.name=name;
         this.surname=surname;
     }
-    verificaBusiness(cliente:Cliente){
-        fetch("./clienti.json")
+    verificaBusiness(){
+        console.log(data[0]);
     }
 }
 export class ClienteBusiness extends Cliente{

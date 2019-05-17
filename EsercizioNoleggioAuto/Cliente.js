@@ -13,14 +13,16 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
+///<reference path="./test.d.ts"/>
+var data = require("./clienti.json");
 var Cliente = /** @class */ (function () {
     function Cliente(id, name, surname) {
         this.id = id;
         this.name = name;
         this.surname = surname;
     }
-    Cliente.prototype.verificaBusiness = function (cliente) {
-        fetch("./clienti.json");
+    Cliente.prototype.verificaBusiness = function () {
+        console.log(data[0]);
     };
     return Cliente;
 }());
