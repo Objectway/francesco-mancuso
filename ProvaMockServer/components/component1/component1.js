@@ -14,10 +14,9 @@ myApp
 
                 fetch("/rest/v1/authors/")
                     .then(function(response){
-                       console.log(response)
+                        deferred.resolve(response)
                     })
                     .then(function(myJson){
-                        debugger
                         console.log(myJson)
                     })
                     
