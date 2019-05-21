@@ -7,6 +7,8 @@ import { Component, OnInit, Input,AfterContentChecked,
   OnDestroy, SimpleChanges, Output, EventEmitter} from '@angular/core';
 import { HeroService } from './hero.service';
 import { Hero } from './hero';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-hero-component',
   templateUrl: './hero-component.component.html',
@@ -16,11 +18,16 @@ export class HeroComponentComponent implements OnInit{
   @Input() heroName:string;
   @Output() customEvent: EventEmitter<string> = new EventEmitter();
   @Input() enableParagraph:boolean;
-  constructor(private heroService: HeroService) { }
+
+  constructor(private heroService: HeroService,private router:Router) { }
+
   private heroesList:Hero[];
   kickHero(){
     console.log("Kicked hero child");
     this.customEvent.emit(`i have kicked ${this.heroName}`)
+  }
+  goToHeroDetail(heroId){
+    this.router.navigate(['/heroes/hero',heroId])
   }
 
 //  ngOnChanges(changes: SimpleChanges): void {

@@ -1,4 +1,4 @@
-<p (click)="kickHero()" appAppHighlight>
+<p appHighlight (click)="kickHero()" >
   hero-component works!
 
 {{heroName}}
@@ -8,3 +8,4 @@
   I exist if flag is true!
 </p>
 
+<div  *ngFor="let hero of heroesList" (click)="goToHeroDetail(hero.id)"> {{ hero.name }}</div>

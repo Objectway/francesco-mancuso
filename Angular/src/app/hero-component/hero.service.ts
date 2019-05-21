@@ -11,9 +11,11 @@ export class HeroService {
     return new Observable((observer)=> {
       observer.next([
         {
+          id:1,
           name:"Phoenix"
         },
         {
+          id:2,
           name:"Wolverine"
         }
     ]);
