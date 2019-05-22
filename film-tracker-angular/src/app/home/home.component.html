@@ -8,8 +8,8 @@
   <input class="Input" [(ngModel)]="filmName" >
   <button class="Button" (click)="searchFilm()"> CERCA </button>
 </div>
-<div class="Home__filmListContainer">
-  <div class="Home__film" *ngFor="let film of filmList" >
+<div class="Home__filmListContainer" *ngIf="!!filmList">
+  <div class="Home__film" *ngFor="let film of filmList | filmYear:2018" >
     <span class="Home__filmName"> {{film.Title}}  </span>
     <span class="Home_filmyear"> {{film.Year}} </span>
     <div class="Home_filmPoster">

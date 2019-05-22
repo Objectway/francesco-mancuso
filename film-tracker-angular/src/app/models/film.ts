@@ -1,6 +1,6 @@
 export class Film {
     title: string;
-    year: string;
+    Year: string;
     rated: string;
     released: string;
     runtime: string;

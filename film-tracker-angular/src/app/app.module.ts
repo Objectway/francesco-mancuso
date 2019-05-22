@@ -8,12 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilmDetailsComponent } from './film-details/film-details.component';
 import { FilmActionsComponent } from './film-actions/film-actions.component';
 import { filmDetailsResolver } from './resolvers/film-details.resolver';
+import { FilmYearPipe } from './home/film-year.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FilmDetailsComponent,
-    FilmActionsComponent
+    FilmActionsComponent,
+    FilmYearPipe
   ],
   imports: [
     BrowserModule,
