@@ -1,0 +1,5 @@
+<div class="Home_filmButtons">
+    <button class="Button" (click)="addFilmToWatchedList()"> Aggiungi a Visti </button>
+    <button class="Button" (click)="addFilmToWishList()">Aggiungi da Vedere</button>
+    <button *ngIf="!invisible" class="Button" (click)="gotoDetails()"> Vedi Dettagli</button>
+</div>
