@@ -53,21 +53,20 @@ export default class Person extends Vue implements Persona {
   public componentName:string = "app1";
   public bgcolor:string="green";
   created(){
-    EventBus.$on('eventBusCustomEvent',(data:any)=>{
-      debugger;
-      console.log(data)
-    })
+    EventBus.$on('eventBusCustomEvent',(data:any) => {
+      console.log(data);
+    });
   }
 
   public childEvent(event: any) {
     console.log(event);
     alert('trigger ok' + event);
   }
-  public clickAnimal(){
-    this.componentName= 'app1';
+  public clickAnimal() {
+    this.componentName = 'app1';
   }
   public clickProfile(){
-    this.componentName= 'app2';
+    this.componentName = 'app2';
   }
 }
 </script>

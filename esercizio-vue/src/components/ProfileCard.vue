@@ -10,14 +10,14 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { EventBus } from '../main';
 @Component({
     directives: {
-        'my-directive':{
-            bind:(el,binding,vnode)=>{
-                if(binding.arg === 'background-color'){
+        'my-directive': {
+            bind: ( el, binding, vnode) => {
+                if (binding.arg === 'background-color') {
                     el.style.backgroundColor = binding.value;
                 }
-            }
-        }
-    }
+            },
+        },
+    },
 })
 
 export default class ProfileCard extends Vue {
