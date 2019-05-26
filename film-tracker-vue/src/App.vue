@@ -1,27 +1,17 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Home</router-link>
     </div>
     <router-view/>
 
-    {{$store.state.name}} {{$store.state.surname}}
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 @Component
 export default class App extends Vue{
-    created(){
-      console.log(this.$store.getters.getFullName)
-      console.log(this.$store.getters.getFullNameReverse)
-      this.$store.commit('changeName', 'Topolino')
-      this.$store.dispatch('setNameAndSurname', {
-        name: 'Mario',
-        surname: 'Bianchi'
-      })
-    }
+    
 }
 </script>
 
