@@ -8,20 +8,28 @@ export default new Vuex.Store({
     urlimg:'https://cdn1.iconfinder.com/data/icons/rcons-user-action/512/user-512.png',
     name:"Francesco",
     surname:"Mancuso",
-    tempname:' ',
-    tempsurname:' '
+    editname:'',
+    editsurname:''
   },
   getters:{
     getUrl:(state) => {
       return state.urlimg;
     },
-    getDefaultName:(state) => {
-      if(!state.name){
-        return
+    getEditName:(state) => {
+      if(state.editname==''){
+        return state.name
+      }
+      else{
+        return state.editname;
       }
     },
-    getDefaultSurname:(state) => {
-      return state.surname;
+    getEditSurname:(state) => {
+      if(state.editsurname==''){
+        return state.surname
+      }
+      else{
+        return state.editsurname;
+      }
     }
   },
   mutations: {
@@ -31,11 +39,11 @@ export default new Vuex.Store({
     changeSurname: (state,value) => {
       state.surname= value;
     },
-    changeTempname: (state,value) => {
-      state.tempname= value;
+    changeEditName: (state,value) => {
+      state.editname= value;
     },
-    changeTempsurname: (state,value) => {
-      state.tempsurname= value;
+    changeEditSurname: (state,value) => {
+      state.editsurname= value;
     }
   },
   actions: {

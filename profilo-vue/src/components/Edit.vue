@@ -2,11 +2,11 @@
   <div class="EditWrapper">
     <div class="EditWrapper__name">
         <label> NAME </label>
-        <input @change="update" v-model="name" type="text">
+        <input @change="update" v-model="editname" type="text">
     </div>
     <div class="EditWrapper__surname">
         <label> SURNAME </label>
-        <input @change="update" v-model="surname" type="text">
+        <input @change="update" v-model="editsurname" type="text">
     </div>
     <div class="EditWrapper__buttonSave">
         <button @click="salva"> Salva </button>
@@ -19,20 +19,23 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Edit extends Vue {
-    public name:string=this.$store.state.tempname|| this.$store.state.name;
-    public surname:string=this.$store.state.tempsurname;
+    public editname:string = this.$store.getters.getEditName;
+    public editsurname:string = this.$store.getters.getEditSurname;
 
     
+
     update(){
-        this.$store.commit('changeTempname',this.name);
-        this.$store.commit('changeTempsurname',this.surname)
+        this.$store.commit('changeEditName',this.editname);
+        console.log("ho cambiato il temp name");
+        this.$store.commit('changeEditSurname',this.editsurname);
+        console.log("ho cambiato il temp surname");
     }
 
     public salva(){
-        this.$store.commit('changeName',this.name);
-        this.$store.commit('changeSurname',this.surname);
-        this.name=' ';
-        this.surname='';
+        this.$store.commit('changeName',this.editname);
+        this.$store.commit('changeSurname',this.editsurname);
+        this.editname='';
+        this.editsurname='';
     }
 
   
