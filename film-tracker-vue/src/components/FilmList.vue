@@ -6,7 +6,7 @@
     </div>
     <div :key="film.imdbID" v-for="film in filmList" class="FilmList__results">
       <div class="FilmList__resultsPoster" >
-        <img @click="goToDetails(film.imdbID)" :src="film.Poster">
+        <img @click="goToDetails(film.imdbID)" :src="film.Poster !== 'N/A' ? film.Poster : image">
       </div>
       <div class="FilmList__resultsTitle" >
         Titolo: {{film.Title}}
@@ -31,6 +31,7 @@ import FilmDetails from './FilmDetails.vue'
 export default class FilmList extends Vue {
   public search: string = '';
   public filmList: any= [];
+  public image:string= 'https://www.blakeslistings.com/assets/images/image-not-available.jpg';
   public searchFilm(search:string){
     this.axios.get(`http://www.omdbapi.com/?apikey=51fb3d47&s=${search}`)
       .then((response:any) => {
