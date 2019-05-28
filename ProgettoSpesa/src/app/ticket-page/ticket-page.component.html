@@ -1,0 +1,20 @@
+<div class="TicketPage">
+  <button (click)="goback()" >  
+    Go Back
+  </button>
+  <div class="TicketPage__value">
+    <label> Valore Ticket </label>
+    <input [(ngModel)]="ticketvalue" type="number">
+  </div>
+  <div class="TicketPage__ticketNumber">
+    Ticket Disponibili: {{ticketnumber}}
+  </div>
+  <div class="TicketPage__ticketUsed">
+    <label> Ticket da usare </label>
+    <input [(ngModel)]="tickettouse" type="number">
+  </div>
+  <div class="TicketPage__button">
+    <button (click)="usaTicket()"> Usa i Ticket </button>
+    {{dascontare}}
+  </div>
+</div>

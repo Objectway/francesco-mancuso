@@ -1,0 +1,35 @@
+.ShopList__label{
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 1fr 1fr;
+    justify-items: end;
+    background: blue;
+    .ShopList__labelName{
+        justify-self: center;
+    }
+}
+.ShopList__wrapper{
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 1fr 1fr;
+    justify-items: end;
+    background: white;
+    border: 1px black solid;
+    padding: 0.5em;
+    .ShopList__wrapperName{
+        justify-self: center;
+    }
+    .ShopList__wrapperdelete{
+        justify-self: center;
+    }
+
+}
+.blue{
+    background: rgb(98, 188, 218);
+}
+.ShopList__totale{
+    padding:0.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: end;
+    background: lightgreen;
+    border: 1px solid black;
+}

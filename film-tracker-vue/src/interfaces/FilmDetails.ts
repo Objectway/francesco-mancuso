@@ -1,4 +1,4 @@
-export default class FilmDetails {
+export default class Film {
         Title?: string;
         Year?: string;
         Rated?: string;
@@ -24,5 +24,31 @@ export default class FilmDetails {
         Production?: string;
         Website?: string;
         Response?: string;
-        
+        constructor(){
+            this.Title='';
+            this.Year='';
+            this.Rated='';
+            this.Released='';
+            this.Runtime='';
+            this.Genre='';
+            this.Director='';
+            this.Writer='';
+            this.Actors='';
+            this.Plot='';
+            this.Language='';
+            this.Country='';
+            this.Awards='';
+            this.Poster='';
+            this.Ratings=0;
+            this.Metascore='';
+            this.imdbRating='';
+            this.imdbVotes='';
+            this.imdbID='';
+            this.Type='';
+            this.DVD='';
+            this.BoxOffice='';
+            this.Production='';
+            this.Website='';
+            this.Response='';
+        }
     }

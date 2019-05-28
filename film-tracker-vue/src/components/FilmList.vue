@@ -1,8 +1,8 @@
 <template>
   <div class="FilmList">
     <div class="FilmList__formInput">
-      <input type="text" v-model="search">
-      <button @click="searchFilm(search)"> CERCA </button>
+      <input v-on:keyup.enter="searchFilm(search)" type="text" v-model="search">
+      <button  @click="searchFilm(search)"> CERCA </button>
     </div>
     <div :key="film.imdbID" v-for="film in filmList" class="FilmList__results">
       <div class="FilmList__resultsPoster" >
@@ -36,7 +36,6 @@ export default class FilmList extends Vue {
     this.axios.get(`http://www.omdbapi.com/?apikey=51fb3d47&s=${search}`)
       .then((response:any) => {
         this.filmList = response.data.Search
-        console.log(this.filmList);
       })
   };
   public goToDetails(id:string){
