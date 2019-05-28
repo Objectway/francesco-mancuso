@@ -24,5 +24,4 @@ export default class FilmDetails {
         Production?: string;
         Website?: string;
         Response?: string;
-        
     }

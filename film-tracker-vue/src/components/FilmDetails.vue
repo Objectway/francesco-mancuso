@@ -82,7 +82,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class FilmDetails extends Vue {
     public id?:string;
-    public filmdetails:FilmDetails={};
+    public filmdetails:FilmDetails= new FilmDetails();
     created(){
         this.id=this.$route.params.id;
         this.axios.get(`http://www.omdbapi.com/?apikey=51fb3d47&i=${this.id}`)
