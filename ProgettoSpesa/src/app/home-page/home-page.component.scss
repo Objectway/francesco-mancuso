@@ -1,0 +1,38 @@
+
+
+.HomePageWrapper__header{
+    display: flex;
+    justify-content: space-between;
+    .HomePageWrapper__headerName{
+        font-size:2em;
+    }
+}
+.HomePageWrapper__content{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin: 1em 15%;
+    justify-content: center;
+    border: 2px blue dotted;
+    width: 70%;
+    .HomePageWrapper__contentForm{
+        width: 60%;
+        grid-gap: 1em;
+        display: flex;
+        flex-direction: column;
+        div{
+            display: flex;
+            margin: 0.5em;
+        }
+        label{
+            font-size: 1em;
+        }
+    }
+}
+.HomePageWrapper__contentSave{
+    display: flex;
+    flex-direction: row;
+    button{
+        width: 100%;
+    }
+}

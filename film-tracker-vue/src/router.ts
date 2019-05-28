@@ -16,8 +16,7 @@ export default new Router({
     {
       path: '/filmdetails/:id',
       name: 'filmdetails',
-      props: {default: true},
-      component: () => import(/* webpackChunkName: "about" */ './components/FilmDetails.vue'),
+      component: FilmDetails,
     },
   ],
 });

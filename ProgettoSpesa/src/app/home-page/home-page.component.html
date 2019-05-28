@@ -1,0 +1,31 @@
+<div class="HomePageWrapper">
+  <div class="HomePageWrapper__header">
+    <div class="HomePageWrapper__headerName">
+      Applicazione Spesa
+    </div>
+    <div class="HomePageWrapper__headerTickets">
+      <button (click)="goToTicket()" > Ticket </button>
+    </div>
+  </div>
+  <div class="HomePageWrapper__content">
+    <div class="HomePageWrapper__contentForm" > 
+      <div class="HomePageWrapper__contentFormPrice">
+        <input [(ngModel)]="price" type="number">
+        <label> € </label>
+      </div>
+      <div class="HomePageWrapper__contentFormQuantity">
+        <input [(ngModel)]="quantity" type="number">
+        <label> Pz. </label>
+      </div>
+      <div class="HomePageWrapper__contentFormName">
+        <input [(ngModel)]="name" type="text">
+        <label> Name </label>
+      </div>
+    </div>
+    <div class="HomePageWrapper__contentSave">
+        <button (click)="Add()"> Aggiungi </button>
+    </div>
+  </div>
+  
+  <app-shop-list></app-shop-list>
+</div>
