@@ -1,26 +1,15 @@
-let myApp = angular.module("mock",[]);
 
 myApp
     .component("component1",{
         bindings:{
 
         },
-        controller:function($q){
+        controller:function(Service){
 
             const ctrl=this;
             ctrl.dati="none"
             ctrl.$onInit=function() {
-                let deferred=$q.defer();
-
-                fetch("/rest/v1/authors/")
-                    .then(function(response){
-                        deferred.resolve(response)
-                    })
-                    .then(function(myJson){
-                        console.log(myJson)
-                    })
-                    
-            
+                console.log(Service.print());
             }
         },
         templateUrl:"components/component1/component1.html"
