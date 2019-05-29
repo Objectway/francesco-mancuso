@@ -78,7 +78,7 @@ import Film from '../interfaces/FilmDetails';
 export default class FilmDetails extends Vue {
     public id?:string;
     public filmdetails:Film=new Film();
-    beforeCreate(){
+    created(){
         this.id=this.$route.params.id;
         console.log(this.$route.params.id)
         this.axios.get(`http://www.omdbapi.com/?apikey=51fb3d47&i=${this.id}`)
