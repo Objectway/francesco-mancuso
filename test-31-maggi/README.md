@@ -1,4 +1,4 @@
-# test31maggio
+# test-31-maggio
 
 ## Project setup
 ```

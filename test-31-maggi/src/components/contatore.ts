@@ -1,6 +1,6 @@
 import { LitElement, html, customElement, property } from 'lit-element';
 const increment = require("./add").default
-const sub = require("./sub").default
+
 @customElement('my-contatore')
 export class Contatore extends LitElement {
   
@@ -12,7 +12,7 @@ export class Contatore extends LitElement {
         this._valueChanged();
     }
     sub(){
-        this.count=sub(this.count);
+        this.count--;
         this._valueChanged();
     }
     _valueChanged(){
@@ -32,7 +32,6 @@ export class Contatore extends LitElement {
             }
         </style>
         <div class="CounterWrapper">
-            <div class="CounterWrapper_title"> Modifica Importo </div>
             <button @click="${this.add}"> + </button>
             <div class="CounterWrapper__value"> ${this.count} </div>
             <button @click="${this.sub}" > - </button>

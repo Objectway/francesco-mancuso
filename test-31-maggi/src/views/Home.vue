@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <my-contatore @valueChange="fooUpdate"></my-contatore>
-    <label-count @cambiovaluta="cambia" :value="count" ></label-count>
+    <label-count :value="count" ></label-count>
   </div>
 </template>
 
@@ -18,18 +18,6 @@ export default class Home extends Vue {
   public count:number=0;
   fooUpdate(data: any){
     this.count=data.detail
-  }
-  cambia(data:any){
-    console.log(data.detail)
-    if(data.detail=="Dollaro"){
-      this.count=(1.12*this.count).toFixed(3);
-    }
-    else if(data.detail=="CanadianDollar"){
-    this.count=(1.51*this.count).toFixed(3);
-    }
-    else if(data.detail=="BritishPound"){
-      this.count=(0.88*this.count).toFixed(3);
-    }
   }
 }
 </script>

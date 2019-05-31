@@ -5,8 +5,8 @@ export class LabelCount extends LitElement {
     @property()
     value!:number;
     
-    cambiovaluta(e){
-        this.dispatchEvent(new CustomEvent('cambiovaluta',{detail:e.target.value}))
+    _alert(){
+        document.querySelector('select')
     }
 
     render(){
@@ -23,14 +23,17 @@ export class LabelCount extends LitElement {
         <div class="LabelWrapper" >
             <div class="LabelWrapper__Label"> VALORE: </div>
             <div class="LabelWrapper__value"> ${this.value}
-            <select class="LabelWrapper__select" name="currency" @change="${e => this.cambiovaluta(e)}" >
+            <select class="LabelWrapper__select" name="currency" @change=${this._alert} >
             <option value="Euro" selected >EUR</option>
             <option value="Dollaro" >USD</option>
-            <option value="BritishPound">GBP</option>
+            <option value="BrithisPound">GBP</option>
             <option value="CanadianDollar">CAD</option>
             </select>
+            <script>
+                const select=document.querySelector('select')
+            </script>
+            
             </div>
-            <div class="LabelWrapper__annotation"> <-- Cambio valuta </div>
         </div>
         `
     }
