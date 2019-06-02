@@ -4,11 +4,15 @@ myApp
         return {
             print:function(){
                 let deferred=$q.defer();
-                fetch("/rest/v1/authors")
+                $http({
+                    method:'GET',
+                    url:"/rest/v1/authors"
+                })
                     .then(function(responseJson){
                         deferred.resolve(responseJson.data);
                     })
                     .catch(function(error){
+                        debug
                         deferred.reject(error)
                     })
                 return deferred.promise;

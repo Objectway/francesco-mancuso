@@ -1,8 +1,4 @@
 module.exports = {
-<<<<<<< HEAD
-    publicPath: '/'
-}
-=======
     publicPath: '/',
     devServer: {
       proxy: {
@@ -13,4 +9,3 @@ module.exports = {
       },
     },
   };
->>>>>>> 80801d83f69fc652f6d1349b2aa5418d9d28e07d
