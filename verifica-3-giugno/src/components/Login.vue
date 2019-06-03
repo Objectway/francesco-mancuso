@@ -29,7 +29,7 @@
       <button @click="accedi" > ACCEDI </button>
     </div>
     <div class="Login__modalForgot">
-       <div >Recupera Password</div>
+       <div @click="recuperoPassword" >Recupera Password</div>
     </div>
   </div>
 </div>
@@ -64,6 +64,9 @@ export default class Login extends Vue {
       document.querySelector('.Login__modalFormError').innerHTML = "Controlla le credenziali"
     }
   }
+  recuperoPassword(){
+    this.$emit('recuperoPassword');
+  }
   }
 </script>
 
@@ -85,8 +88,6 @@ export default class Login extends Vue {
       box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.75);
       width: 50%;
       height: 70%;
-      display: flex;
-      flex-direction: column;
       font-family: Arial, Helvetica, sans-serif;
       .Login__modalPhrases {
         margin-left: 4* $gatter;
