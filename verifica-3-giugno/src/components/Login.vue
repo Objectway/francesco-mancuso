@@ -5,8 +5,7 @@
       <div class="Login__modalPhrasesTop">
         Onboarding Login
       </div>
-      <div class="Login__modalPhrasesBottom">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta et urna sed gravida. 
+      <div class="Login__modalPhrasesBottom">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta et urna sed gravida. 
         Proin egestas pulvinar nunc, at scelerisque sem vestibulum et.
       </div>
     </div>
@@ -74,9 +73,10 @@ export default class Login extends Vue {
 <style scoped lang="scss">
   $gatter:8px;
   .Login{
-    position:absolute;
+    position: absolute;
     width: 100%;
     height: 100%;
+    min-height: 100%;
     background: rgb(194, 194, 194);
     display: flex;
     justify-content: center;
@@ -87,13 +87,13 @@ export default class Login extends Vue {
       -moz-box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.75);
       box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.75);
       width: 50%;
-      height: 70%;
+      height: 80%;
       font-family: Arial, Helvetica, sans-serif;
       .Login__modalPhrases {
         margin-left: 4* $gatter;
         margin-top: 8* $gatter;
         line-height: 2* $gatter;
-        margin-bottom: 8* $gatter;
+        margin-bottom: 4* $gatter;
       }
       .Login__modalPhrasesTop{
           font-weight: bold;

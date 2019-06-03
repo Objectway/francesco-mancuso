@@ -1,6 +1,6 @@
 <template>
   <div class="Home">
-  <component @recuperoPassword="changeComponent" :is="dynamicComponent"></component>
+  <component @ReturnToLogin="goToLogin" @recuperoPassword="goToForgotPassword" :is="dynamicComponent"></component>
   </div>
 </template>
 
@@ -17,8 +17,11 @@ import ForgotPassword from '../components/ForgotPassword.vue';
 })
 export default class Home extends Vue {
   private dynamicComponent='login';
-  changeComponent(){
-    this.dynamicComponent='forgotPassword'
+  goToForgotPassword(){
+    this.dynamicComponent='forgotPassword';
+  }
+  goToLogin(){
+    this.dynamicComponent='login';
   }
 }
 </script>

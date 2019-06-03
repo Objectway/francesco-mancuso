@@ -1,6 +1,9 @@
 <template>
   <div class="ForgotPassword">
       <div class="ForgotPassword__modal">
+          <button @click="ReturnToLogin" class="ForgotPassword__modalGoBack">
+             < Torna Dietro
+          </button>
           <div class="ForgotPassword__modalForm">
                 <label> USERNAME </label>
                 <input placeholder="Inserisci Username" type="text" v-model="username">
@@ -40,7 +43,7 @@ export default class ForgotPassword extends Vue {
                 el.innerHTML= `La password è ${this.password}`
                 const input= document.querySelectorAll('input');
                 for(let i=0;i<input.length;i++){
-                input[i].style.border="";
+                input[i].style.border="1px solid #cccccc";
                 debugger;
             }
             }
@@ -48,24 +51,27 @@ export default class ForgotPassword extends Vue {
                 el.innerHTML= response;
                 const input= document.querySelectorAll('input');
                 for(let i=0;i<input.length;i++){
-                input[i].style.border="1px solid red"
-                
-      }
+                input[i].style.border="1px solid red";
+                }
             }
         })
+    }
+    ReturnToLogin(){
+        this.$emit('ReturnToLogin');
     }
 }
 </script>
 <style lang="scss">
     $gatter:8px;
+    
     .ForgotPassword{
-    position:absolute;
-    width: 100%;
-    height: 100%;
-    background: rgb(194, 194, 194);
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    background: rgb(194, 194, 194);
         .ForgotPassword__modal{
         background: white;
         -webkit-box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.75);
@@ -77,6 +83,14 @@ export default class ForgotPassword extends Vue {
         flex-direction: column;
         justify-content: center;
         font-family: Arial, Helvetica, sans-serif;
+        }
+        .ForgotPassword__modalGoBack{
+            margin: $gatter 4*$gatter 8* $gatter;
+            width: 15%;
+            height: 8%;
+            background: #00b1e7;
+            border: 0;
+            color:rgba(255 , 255, 255, 0.75)
         }
         .ForgotPassword__modalForm{
             margin: 0 4*$gatter $gatter;
