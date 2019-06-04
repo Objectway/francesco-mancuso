@@ -51,8 +51,7 @@ export default class ClientList extends Vue {
 
   filterList() {
     this.listaUtenti=this.$store.getters.getUsers;
-    let listaRicerca=this.listaUtenti;
-      var users = listaRicerca.filter((user) => {
+      var users = this.listaUtenti.filter((user) => {
         return user.name.toLowerCase().includes(this.search.toLowerCase());
   });;
   this.listaUtenti=users;
