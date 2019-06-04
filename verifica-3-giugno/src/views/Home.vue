@@ -25,6 +25,7 @@ export default class Home extends Vue {
   goToLogin(){
     this.dynamicComponent='login';
   }
+  
 }
 </script>
 <style lang="scss">

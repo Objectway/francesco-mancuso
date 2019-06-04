@@ -1,5 +1,5 @@
 <template>
-<div class="Login">
+<div  class="Login">
   <div class="Login__modal">
     <div class="Login__modalPhrases">
       <div class="Login__modalPhrasesTop">
@@ -47,6 +47,7 @@ export default class Login extends Vue {
         this.$store.dispatch('setUsers',response.data)
       })
   }
+  
   accedi(){
     let riconosciuto=false;
     this.$store.getters.getUsers.forEach((element:User) => {

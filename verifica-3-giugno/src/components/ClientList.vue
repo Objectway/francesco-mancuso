@@ -11,17 +11,16 @@
       <div class="ClientList__TopBarPhrase">
         Elenco Clienti e Prospect
       </div>
-      <div class="ClientList__TopBarCreate">
+      <div @click="goToCreate" class="ClientList__TopBarCreate">
         <i class="fas fa-plus-circle"></i>
         Crea Nuovo Prospetto
       </div>
     </div>
     <div class="ClientList__SearchBar">
-      <i class="fas fa-search"></i>
-      <input v-model="search" type="text" placeholder="Cerca...">
+      <i  class="fas fa-search"></i>
+      <input v-model="search" type="text" placeholder="Cerca..." @keyup="filterList()">
     </div>
-    <my-client :key="myvariable" v-for="(utente) in listaUtenti" :object="JSON.stringify({ utente:utente, photoList:photoList})"  ></my-client>
-    <button @click="pippo"> CIAO </button>
+    <my-client  :key="index" v-for="(utente,index) in listaUtenti" :object="JSON.stringify({ utente:utente, photoList:photoList})" ></my-client>
   </div>
 </template>
 
@@ -37,29 +36,29 @@ export default class ClientList extends Vue {
   public listaUtenti:User[]=[];
   public photoList:any[]=[];
   public search:string='';
-  public listaRicerca:any[]=[];
-  public myvariable:string='ciao';
   created(){
     
     this.axios.get("http://localhost:3001/rest/v1/photo/")
       .then(response => {
-        this.photoList=response.data
-        // console.log(response.data)
+        this.photoList=response.data;
       })
     this.axios.get("http://localhost:3001/rest/v1/users")
       .then( (response) => {
-        //console.log(response.data)
+        this.$store.commit('setUsers',response.data);
         this.listaUtenti=response.data;
       })
-    
   }
-  pippo(){
-  }
+
   filterList() {
-      var users = this.listaUtenti.filter((user) => {
+    this.listaUtenti=this.$store.getters.getUsers;
+    let listaRicerca=this.listaUtenti;
+      var users = listaRicerca.filter((user) => {
         return user.name.toLowerCase().includes(this.search.toLowerCase());
-  });
-  return users;
+  });;
+  this.listaUtenti=users;
+  }
+  goToCreate(){
+    this.$router.replace('/create')
   }
 }
 </script>
