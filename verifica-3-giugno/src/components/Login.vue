@@ -78,7 +78,7 @@ export default class Login extends Vue {
     height: 100%;
     top: 0;
     left: 0;
-    background: rgb(194, 194, 194);
+    background: rgb(236, 236, 236);
     display: flex;
     justify-content: center;
     align-items: center;
