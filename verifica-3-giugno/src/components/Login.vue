@@ -76,24 +76,22 @@ export default class Login extends Vue {
     position: absolute;
     width: 100%;
     height: 100%;
-    min-height: 100%;
+    top: 0;
+    left: 0;
     background: rgb(194, 194, 194);
     display: flex;
     justify-content: center;
     align-items: center;
     .Login__modal{
       background: white;
-      -webkit-box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.75);
-      -moz-box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.75);
       box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.75);
-      width: 50%;
-      height: 80%;
+      width: 70%;
       font-family: Arial, Helvetica, sans-serif;
       .Login__modalPhrases {
         margin-left: 4* $gatter;
         margin-top: 8* $gatter;
         line-height: 2* $gatter;
-        margin-bottom: 4* $gatter;
+        margin-bottom: 8* $gatter;
       }
       .Login__modalPhrasesTop{
           font-weight: bold;
@@ -135,7 +133,7 @@ export default class Login extends Vue {
         }
       }
       .Login__modalForgot{
-        margin-left: 4*$gatter;
+        margin:0 4*$gatter 16* $gatter;
         div{
           font-size: 12px;
           color:#00b1e7;

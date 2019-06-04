@@ -17,6 +17,8 @@ import ForgotPassword from '../components/ForgotPassword.vue';
 })
 export default class Home extends Vue {
   private dynamicComponent='login';
+  
+  
   goToForgotPassword(){
     this.dynamicComponent='forgotPassword';
   }

@@ -66,6 +66,8 @@ export default class ForgotPassword extends Vue {
     
     .ForgotPassword{
     position: absolute;
+    top: 0;
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,17 +79,16 @@ export default class ForgotPassword extends Vue {
         -webkit-box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.75);
         -moz-box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.75);
         box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.75);
-        width: 50%;
-        height: 70%;
+        width: 70%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         font-family: Arial, Helvetica, sans-serif;
         }
         .ForgotPassword__modalGoBack{
-            margin: $gatter 4*$gatter 8* $gatter;
-            width: 15%;
-            height: 8%;
+            margin: 8*$gatter 4*$gatter 8* $gatter;
+            width: 15 * $gatter;
+            height: 5* $gatter;
             background: #00b1e7;
             border: 0;
             color:rgba(255 , 255, 255, 0.75)
@@ -108,7 +109,7 @@ export default class ForgotPassword extends Vue {
           }
         }
         .ForgotPassword__modalButton{
-            margin: $gatter 4*$gatter;
+            margin: $gatter 4*$gatter 16* $gatter;
             button{
               height: 5*$gatter;
               width: 100%;
