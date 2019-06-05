@@ -22,11 +22,23 @@ export default new Vuex.Store({
   getters:{
     getUsers:(state) => {
       return state.users;
+    },
+    getLastIndex(state){
+      let lastindex=0;
+      state.users.forEach(element => {
+        if(element.id>lastindex){
+          lastindex=element.id
+        }
+      });
+      return lastindex+1;
     }
   },
   mutations: {
     setUsers:(state,users) => {
       state.users=users;
+    },
+    addUser(state,user){
+      state.users.push(user);
     }
   },
   actions: {
@@ -48,6 +60,9 @@ export default new Vuex.Store({
       else if(autorizzato==true){
         return password
       }
+    },
+    addUser(context,user){
+      context.commit('addUser',user)
     }
   },
   strict:true

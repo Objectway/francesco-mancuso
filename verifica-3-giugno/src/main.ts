@@ -5,10 +5,9 @@ import axios from 'axios';
 import store from './store'
 import VueAxios from 'vue-axios';
 Vue.use(VueAxios, axios)
-
 Vue.config.productionTip = false;
 
-new Vue({
+export const EventBus=new Vue({
   router,
   store,
   render: (h) => h(App),

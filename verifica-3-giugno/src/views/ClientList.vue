@@ -1,12 +1,6 @@
 <template>
   <div class="ClientList">
-    <div class="ClientList__Header">
-      <i class="fas fa-bars"></i>
-      <div class="ClientList__HeaderConectus"> CONECTUS </div>
-      <div class="ClientList__HeaderBell">
-        <i class="fas fa-bell"></i>
-      </div>
-    </div>
+    <Header></Header>
     <div class="ClientList__TopBar">
       <div class="ClientList__TopBarPhrase">
         Elenco Clienti e Prospect
@@ -26,27 +20,36 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import './webcomponents/Client.ts'
+import '../components/webcomponents/Client.ts'
 import { User } from '../User';
+import  Header  from '@/components/Header.vue'
 @Component({
   components: {
+    Header
   }
 })
 export default class ClientList extends Vue {
   public listaUtenti:User[]=[];
   public photoList:any[]=[];
   public search:string='';
+  public loaded=false;
   created(){
-    
+
+
     this.axios.get("http://localhost:3001/rest/v1/photo/")
       .then(response => {
         this.photoList=response.data;
       })
+    if(this.$store.getters.getUsers.length<=1){
     this.axios.get("http://localhost:3001/rest/v1/users")
       .then( (response) => {
         this.$store.commit('setUsers',response.data);
         this.listaUtenti=response.data;
       })
+    }
+    else{
+        this.listaUtenti=this.$store.getters.getUsers;
+    }
   }
 
   filterList() {
@@ -57,7 +60,7 @@ export default class ClientList extends Vue {
   this.listaUtenti=users;
   }
   goToCreate(){
-    this.$router.replace('/create')
+    this.$router.push('/create')
   }
 }
 </script>
@@ -70,28 +73,7 @@ export default class ClientList extends Vue {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background: rgb(236, 236, 236);
-    .ClientList__Header{
-      display: flex;
-      align-items: center;
-      background: #005dad;
-      color: white;
-      width: 100%;
-      height: 5* $gatter;
-      font-weight: bold;
-      font-size: 18px;
-      .fa-bars{
-        margin: 2*$gatter;
-      }
-      .ClientList__HeaderConectus{
-        margin-top: 5px;
-      }
-      .ClientList__HeaderBell{
-        margin-left: auto;
-        margin-right: 5* $gatter;
-        justify-self: flex-end;
-      }
-    }
+    background: #f5f5f5;
     .ClientList__TopBar{
       display: flex;
       align-items: center;

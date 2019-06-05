@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
-import ClientList from './components/ClientList.vue';
-import Create from './components/Create.vue';
+import LoginPage from './views/LoginPage.vue';
+import ClientList from './views/ClientList.vue';
+import Create from './views/Create.vue';
 Vue.use(Router);
 
 export default new Router({
@@ -11,8 +11,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home,
+      name: 'LoginPage',
+      component: LoginPage,
     },
     {
       path:'/clientlist',

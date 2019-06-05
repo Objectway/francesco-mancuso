@@ -73,7 +73,7 @@ export default class ForgotPassword extends Vue {
     align-items: center;
     width: 100%;
     height: 100%;
-    background: rgb(236, 236, 236);
+    background: #f5f5f5;
         .ForgotPassword__modal{
         background: white;
         -webkit-box-shadow: -4px 4px 5px 0px rgba(0,0,0,0.75);

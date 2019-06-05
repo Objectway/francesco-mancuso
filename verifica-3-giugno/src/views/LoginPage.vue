@@ -1,5 +1,5 @@
 <template>
-  <div class="Home">
+  <div class="LoginPage">
   <component @ReturnToLogin="goToLogin" @recuperoPassword="goToForgotPassword" :is="dynamicComponent"></component>
   </div>
 </template>
@@ -15,7 +15,7 @@ import ForgotPassword from '../components/ForgotPassword.vue';
     forgotPassword:ForgotPassword
   },
 })
-export default class Home extends Vue {
+export default class LoginPage extends Vue {
   private dynamicComponent='login';
   
   
