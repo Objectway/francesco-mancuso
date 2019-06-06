@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import LoginPage from './views/LoginPage.vue';
 import ClientList from './views/ClientList.vue';
 import Create from './views/Create.vue';
+import store from './store'
 Vue.use(Router);
 
 export default new Router({
@@ -17,7 +18,16 @@ export default new Router({
     {
       path:'/clientlist',
       name: 'clientlist',
-      component: ClientList
+      component: ClientList,
+      beforeEnter: (to,from,next) => {
+        to:'/clientlist';
+        if(store.getters.getLogged==true){
+          next()
+        }
+        else{
+          next('/')
+        }
+      }
     },
     {
       path:'/create',

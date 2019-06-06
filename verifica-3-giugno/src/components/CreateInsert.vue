@@ -61,6 +61,8 @@
       <button @click="annulla" class="CreateInsert__buttonUndo"> ANNULLA </button>
       <button :class="{'agreed': agreed}" @click="avanti" class="CreateInsert__buttonForward"> AVANTI </button>
     </div>
+    <div v-show="success" class="CreateInsert__success">
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -78,14 +80,13 @@ export default class CreateChoose extends Vue {
   public cf='';
   public lastindex=0;
   public agreed:boolean=null;
+  public success:boolean=false;
   annulla(){
     this.$emit('returnToChoose')
   }
   avanti(){
-    console.log(typeof(this.agreed) +' '+ this.agreed)
     // debugger;
       if(this.agreed==true){
-        console.log("SONO ENTRATO")
         if(this.name!='' && this.surname!='' && this.cf!=''){
           this.returnLastIndex();
           let user={
@@ -111,14 +112,15 @@ export default class CreateChoose extends Vue {
             "bs": "harness real-time e-markets"
           }
     }
-    // this.axios.post('http://localhost:3001/rest/v1/users/',user)
-    //   .then( response => {
-    //     console.log(response)
-    //   })
 
-    console.log(this.agreed)
+    this.startTimer();
     this.$store.dispatch('addUser',user);
-    console.log(this.$store.getters.getUsers)
+    this.success=true;
+    setTimeout(() => {
+      this.success=false;
+      this.$router.push('/clientlist');
+    },4*1000)
+
   }
   else{
     alert('Credenziali obbligatorie')
@@ -130,11 +132,27 @@ export default class CreateChoose extends Vue {
 
 
   }
+  startTimer() {
+    var timer = 3;
+    var seconds;
+    const interval=setInterval(function () {;
+        seconds = timer % 60;
+
+        seconds = seconds < 10 ? 0 + seconds : seconds;
+
+        document.querySelector('.CreateInsert__success').innerHTML = "        <img src='https://media.tenor.com/images/771577ac99bc46709e85e2f8ad5376ea/tenor.gif'>" +
+         "Utente Registrato Correttamente, verrai reindirizzato in " + seconds + " secondi";
+
+        if (--timer < 0) {
+            timer = 0;
+            clearInterval(interval);
+        }
+    }, 1000);
+}
   created(){
-    this.axios.get("http://localhost:3001/rest/v1/users")
+    this.axios.get("http://localhost:3001/rest/v1/users/")
       .then( (response) => {
         this.$store.commit('setUsers',response.data);
-        console.log(this.$store.getters.getUsers);
           })
     
   }
@@ -171,13 +189,13 @@ input{
   }
   .CreateInsert__bodyImage {
     background: white;
-    min-width: 400px;
-    max-height: 250px;
     margin: $gatter *8;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 400px;
+    height: 250px;
     .fas{
       font-size: 100px;
       margin-bottom: $gatter*2;
@@ -186,6 +204,7 @@ input{
   .CreateInsert__bodyRight {
     background: white;
     margin: $gatter *8;
+    width: 53%;
   }
   .CreateInsert__bodyRightForm1{
       display: flex;
@@ -267,6 +286,17 @@ input{
             color: white;
             margin: $gatter *2;
         }
+    }
+    .CreateInsert__success{
+      width: 500px;
+      height: 500px;
+      background: white;
+      position: fixed;
+      align-self: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 }
 </style>

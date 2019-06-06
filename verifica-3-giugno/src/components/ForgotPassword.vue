@@ -2,7 +2,8 @@
   <div class="ForgotPassword">
       <div class="ForgotPassword__modal">
           <button @click="ReturnToLogin" class="ForgotPassword__modalGoBack">
-             < Torna Dietro
+                <i class="fas fa-chevron-left"></i>
+                 Torna Dietro
           </button>
           <div class="ForgotPassword__modalForm">
                 <label> USERNAME </label>
@@ -34,27 +35,56 @@ export default class ForgotPassword extends Vue {
     public username:string='';
     public email:string='';
     public password?:string;
+    created(){
+        console.log(this.$store.getters.getUsers)
+    }
     Recupera(){
-       (this.$store.dispatch('getPassword',{username:this.username, email:this.email}))
-        .then(response => {
-            this.password=(response);
-            const el= document.querySelector('.ForgotPassword__modalPassword');
-            if(response!="Credenziali Errate"){
-                el.innerHTML= `La password è ${this.password}`
-                const input= document.querySelectorAll('input');
-                for(let i=0;i<input.length;i++){
-                input[i].style.border="1px solid #cccccc";
-                debugger;
-            }
-            }
-            else{
-                el.innerHTML= response;
-                const input= document.querySelectorAll('input');
-                for(let i=0;i<input.length;i++){
-                input[i].style.border="1px solid red";
-                }
-            }
-        })
+        if(this.$store.getters.getUsers.length==0){
+            this.axios.get("http://localhost:3001/rest/v1/users/")
+                .then( (response) => {
+                    this.$store.commit('setUsers',response.data);
+                    (this.$store.dispatch('getPassword',{username:this.username, email:this.email}))
+                        .then(response => {
+                            this.password=(response);
+                            const el= document.querySelector('.ForgotPassword__modalPassword');
+                            if(response!="Credenziali Errate"){
+                                el.innerHTML= `La password è ${this.password}`
+                                const input= document.querySelectorAll('input');
+                                for(let i=0;i<input.length;i++){
+                                input[i].style.border="1px solid #cccccc";
+                            }
+                            }
+                            else{
+                                el.innerHTML= response;
+                                const input= document.querySelectorAll('input');
+                                for(let i=0;i<input.length;i++){
+                                input[i].style.border="1px solid red";
+                                }
+                            }
+                        })
+                })
+        }
+        else{
+            (this.$store.dispatch('getPassword',{username:this.username, email:this.email}))
+                .then(response => {
+                    this.password=(response);
+                    const el= document.querySelector('.ForgotPassword__modalPassword');
+                    if(response!="Credenziali Errate"){
+                        el.innerHTML= `La password è ${this.password}`
+                        const input= document.querySelectorAll('input');
+                        for(let i=0;i<input.length;i++){
+                        input[i].style.border="1px solid #cccccc";
+                    }
+                    }
+                    else{
+                        el.innerHTML= response;
+                        const input= document.querySelectorAll('input');
+                        for(let i=0;i<input.length;i++){
+                        input[i].style.border="1px solid red";
+                        }
+                    }
+                })
+        }
     }
     ReturnToLogin(){
         this.$emit('ReturnToLogin');

@@ -26,6 +26,8 @@
     </div>
     <div class="Login__modalButton">
       <button @click="accedi" > ACCEDI </button>
+      <img v-if="loaded" src="https://siga.ana.gob.pa/pcus/images/spinner.gif">
+
     </div>
     <div class="Login__modalForgot">
        <div @click="recuperoPassword" >Recupera Password</div>
@@ -41,29 +43,59 @@ import { User } from '../User';
 export default class Login extends Vue {
   public username:string='';
   public password:string='';
+  public listaUtente:User[]=[];
+  public loaded:boolean=false;
   created(){
-    this.axios.get("http://localhost:3001/rest/v1/users")
-      .then( (response) => {
-        this.$store.dispatch('setUsers',response.data)
-      })
   }
-  
+
   accedi(){
-    let riconosciuto=false;
-    this.$store.getters.getUsers.forEach((element:User) => {
-      if(element.username==this.username && element.address.zipcode==this.password){
-        riconosciuto=true;
-        this.$router.push('/clientlist');
-      }
-    });
-    if(riconosciuto==false){
-      const input= document.querySelectorAll('input');
-      for(let i=0;i<input.length;i++){
-        input[i].style.border="1px solid red"
-      }
-      document.querySelector('.Login__modalFormError').innerHTML = "Controlla le credenziali"
+
+    this.loaded=true;
+    this.listaUtente=this.$store.getters.getUsers;
+    if(this.listaUtente.length==0){
+      this.axios.get("http://localhost:3001/rest/v1/users/")
+        .then( (response) => {
+          this.listaUtente=response.data;
+          this.loaded=true;
+          this.listaUtente.forEach(element => {
+            if(element.username==this.username && element.address.zipcode==this.password){
+              this.$store.commit('setLogged',true);
+            }
+            if(this.$store.getters.getLogged==true){
+              this.loaded=false;
+              this.$router.push('/clientlist');
+              }
+            else{
+                const input= document.querySelectorAll('input');
+                for(let i=0;i<input.length;i++){
+                input[i].style.border="1px solid red";
+                this.loaded=false;
+                }
+                document.querySelector('.Login__modalFormError').innerHTML = "Controlla le credenziali";
+            }
+          });
+        })
     }
-  }
+    else{
+      this.listaUtente.forEach(element => {
+        if(element.username==this.username && element.address.zipcode==this.password){
+          this.$store.commit('setLogged',true);
+        }
+        if(this.$store.getters.getLogged==true){
+          this.loaded=false;
+          this.$router.push('/clientlist');
+          }
+        else{
+            const input= document.querySelectorAll('input');
+            for(let i=0;i<input.length;i++){
+            input[i].style.border="1px solid red";
+            this.loaded=false;
+            }
+            document.querySelector('.Login__modalFormError').innerHTML = "Controlla le credenziali";
+        }
+          });
+    }
+    }
   recuperoPassword(){
     this.$emit('recuperoPassword');
   }
@@ -125,12 +157,20 @@ export default class Login extends Vue {
       }
       .Login__modalButton{
         margin: $gatter 4*$gatter;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         button{
           height: 5*$gatter;
           width: 100%;
           background: #00b1e7;
           border: 0;
           color:rgba(255 , 255, 255, 0.75)
+        }
+        img{
+          margin-top: 30px;
+          width: 50px;
+          height: auto;
         }
       }
       .Login__modalForgot{

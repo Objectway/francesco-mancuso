@@ -1,5 +1,5 @@
 <template>
-  <div class="ClientList">
+  <div v-if="loaded" class="ClientList">
     <Header></Header>
     <div class="ClientList__TopBar">
       <div class="ClientList__TopBarPhrase">
@@ -15,6 +15,9 @@
       <input v-model="search" type="text" placeholder="Cerca..." @keyup="filterList()">
     </div>
     <my-client  :key="index" v-for="(utente,index) in listaUtenti" :object="JSON.stringify({ utente:utente, photoList:photoList})" ></my-client>
+  </div>
+  <div class="Spinner" v-else>
+    <img src="https://cdn.dribbble.com/users/15774/screenshots/1759511/spinner.gif">
   </div>
 </template>
 
@@ -32,25 +35,43 @@ export default class ClientList extends Vue {
   public listaUtenti:User[]=[];
   public photoList:any[]=[];
   public search:string='';
-  public loaded=false;
+  public loaded:boolean=this.$store.getters.getLoaded;
   created(){
-
-
-    this.axios.get("http://localhost:3001/rest/v1/photo/")
-      .then(response => {
-        this.photoList=response.data;
+    console.log(this.$store.getters.getLogged)
+    this.listaUtenti=this.$store.getters.getUsers;
+    this.photoList=this.$store.getters.getPhotos;
+    if(this.listaUtenti.length!=0){
+      if(this.photoList.length!=0){
+        this.loaded=true;
+      }
+      else{
+        this.axios.get("http://localhost:3001/rest/v1/photo/")
+        .then((response) => {
+          this.$store.commit('setPhotos',response.data);
+          this.photoList=this.$store.getters.getPhotos;
+          this.loaded=true;
       })
-    if(this.$store.getters.getUsers.length<=1){
-    this.axios.get("http://localhost:3001/rest/v1/users")
-      .then( (response) => {
-        this.$store.commit('setUsers',response.data);
-        this.listaUtenti=response.data;
-      })
+      }
     }
-    else{
-        this.listaUtenti=this.$store.getters.getUsers;
-    }
+    
+    else if(this.listaUtenti.length==0){
+      this.axios.get("http://localhost:3001/rest/v1/users/")
+        .then( (response) => {
+          this.$store.commit('setUsers',response.data);
+          this.listaUtenti=this.$store.getters.getUsers;
+          this.axios.get("http://localhost:3001/rest/v1/photo/")
+            .then(response => {
+              this.$store.commit('setPhotos',response.data);
+            this.photoList=this.$store.getters.getPhotos;
+            this.loaded=true;
+        })
+        })
   }
+  else{
+    this.listaUtenti=this.$store.getters.getUsers
+  }
+    }
+    
 
   filterList() {
     this.listaUtenti=this.$store.getters.getUsers;
@@ -101,5 +122,12 @@ export default class ClientList extends Vue {
         border:0;
         }
       }
+  }
+  .Spinner{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>

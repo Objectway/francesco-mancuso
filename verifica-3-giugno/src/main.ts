@@ -7,6 +7,7 @@ import VueAxios from 'vue-axios';
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false;
 
+
 export const EventBus=new Vue({
   router,
   store,

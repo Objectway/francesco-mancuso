@@ -5,19 +5,10 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    users:[
-      {
-        id: null,
-        name: null,
-        username: null,
-        email: null,
-        address: null,
-        phone: null,
-        website: null,
-        company: null,
-        geo: null
-      }
-    ]
+    users:[],
+    photos:[],
+    loaded:false,
+    logged:null,
   },
   getters:{
     getUsers:(state) => {
@@ -31,21 +22,43 @@ export default new Vuex.Store({
         }
       });
       return lastindex+1;
+    },
+    getLoaded(state){
+      return state.loaded;
+    },
+    getPhotos(state){
+      return state.photos
+    },
+    getLogged(state){
+      return state.logged;
     }
   },
   mutations: {
     setUsers:(state,users) => {
       state.users=users;
     },
+    setPhotos:(state,photos) => {
+      state.photos=photos;
+    },
     addUser(state,user){
       state.users.push(user);
+    },
+    setLoaded(state,loaded){
+      state.loaded=loaded;
+    },
+    setLogged(state,logged){
+      state.logged=logged;
     }
   },
   actions: {
     setUsers (context, lista ){
       context.commit('setUsers',lista);
     },
+    setPhotos (context, photos ){
+      context.commit('setPhotos',photos);
+    },
     getPassword (context,{username, email}){
+      debugger;
       let autorizzato=false;
       let password='';
       context.state.users.forEach((element,index) => {
@@ -63,6 +76,9 @@ export default new Vuex.Store({
     },
     addUser(context,user){
       context.commit('addUser',user)
+    },
+    setLoaded(context,loaded){
+      context.commit('setLoaded',loaded)
     }
   },
   strict:true
