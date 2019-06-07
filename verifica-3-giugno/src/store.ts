@@ -8,7 +8,7 @@ export default new Vuex.Store({
     users:[],
     photos:[],
     loaded:false,
-    logged:null,
+    logged:false,
   },
   getters:{
     getUsers:(state) => {
@@ -22,7 +22,7 @@ export default new Vuex.Store({
         }
       });
       return lastindex+1;
-    },
+    },  
     getLoaded(state){
       return state.loaded;
     },
@@ -42,6 +42,7 @@ export default new Vuex.Store({
     },
     addUser(state,user){
       state.users.push(user);
+      console.log(state.users)
     },
     setLoaded(state,loaded){
       state.loaded=loaded;
@@ -58,7 +59,6 @@ export default new Vuex.Store({
       context.commit('setPhotos',photos);
     },
     getPassword (context,{username, email}){
-      debugger;
       let autorizzato=false;
       let password='';
       context.state.users.forEach((element,index) => {
@@ -79,6 +79,9 @@ export default new Vuex.Store({
     },
     setLoaded(context,loaded){
       context.commit('setLoaded',loaded)
+    },
+    setLogged(context,logged){
+      context.commit('setLogged',logged)
     }
   },
   strict:true

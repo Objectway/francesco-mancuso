@@ -19,7 +19,7 @@
                     Persona Fisica
                 </div>
             </div>
-            <div class="CreateChoose__bodyTypePerson">
+            <div @click="goToJuridical" class="CreateChoose__bodyTypePerson">
                 <div class="CreateChoose__bodyTypePersonContent">
                     <i class="fas fa-building"></i>
                     Persona Giuridica
@@ -42,10 +42,13 @@ import Header from '@/components/Header.vue'
     })
 export default class CreateChoose extends Vue{
   goToInsert(){
-    this.$emit('changeComponent')
+    this.$emit('changeComponent','insert')
   }
   annulla(){
     this.$router.push('/clientlist')
+  };
+  goToJuridical(){
+    this.$emit('changeComponent','juridical')
   }
 
   

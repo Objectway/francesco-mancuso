@@ -1,6 +1,6 @@
 <template>
   <div class="LoginPage">
-  <component @ReturnToLogin="goToLogin" @recuperoPassword="goToForgotPassword" :is="dynamicComponent"></component>
+  <component @ReturnToLogin="goToLogin" @recuperoPassword="goToForgotPassword" :is="dynamicComponent"></component> <!-- metto il component in ascolto degli eventi -->
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default class LoginPage extends Vue {
   private dynamicComponent='login';
   
   
-  goToForgotPassword(){
+  goToForgotPassword(){ 
     this.dynamicComponent='forgotPassword';
   }
   goToLogin(){

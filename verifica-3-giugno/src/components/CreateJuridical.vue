@@ -6,8 +6,8 @@
     </div>
     <div class="CreateInsert__body">
       <div class="CreateInsert__bodyImage">
-        <i class="fas fa-user"></i>
-        PersonaFisica
+        <i class="fas fa-building"></i>
+        Persona Giuridica
       </div>
       <div class="CreateInsert__bodyRight">
         <div class="CreateInsert__bodyRightForm1">
@@ -85,6 +85,7 @@ export default class CreateChoose extends Vue {
     this.$emit('returnToChoose')
   }
   avanti(){
+    // debugger;
       if(this.agreed==true){
         if(this.name!='' && this.surname!='' && this.cf!=''){
           this.returnLastIndex();
@@ -114,12 +115,10 @@ export default class CreateChoose extends Vue {
 
     this.startTimer();
     this.$store.dispatch('addUser',user);
-    // this.$store.dispatch('setUsers',this.$store.getters.getUsers)
     this.success=true;
     setTimeout(() => {
       this.success=false;
       this.$router.push('/clientlist');
-
     },4*1000)
 
   }
@@ -151,12 +150,11 @@ export default class CreateChoose extends Vue {
     }, 1000);
 }
   created(){
-    if(this.$store.getters.getUsers.lenght==1){
     this.axios.get("http://localhost:3001/rest/v1/users/")
       .then( (response) => {
         this.$store.commit('setUsers',response.data);
           })
-    }
+    
   }
   returnLastIndex(){
     this.lastindex=this.$store.getters.getLastIndex

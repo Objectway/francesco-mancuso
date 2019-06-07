@@ -18,6 +18,7 @@ export class Client extends LitElement {
     this.object=JSON.parse(this.object);
     const utente=this.object.utente;
     const photoList=this.object.photoList;
+    console.log(this.object)
     this.getImagefromUser(utente,photoList);
     return html`
       <style>

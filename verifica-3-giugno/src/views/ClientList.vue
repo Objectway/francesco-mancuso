@@ -35,26 +35,27 @@ export default class ClientList extends Vue {
   public listaUtenti:User[]=[];
   public photoList:any[]=[];
   public search:string='';
-  public loaded:boolean=this.$store.getters.getLoaded;
+  public loaded:boolean=false;
   created(){
-    console.log(this.$store.getters.getLogged)
-    this.listaUtenti=this.$store.getters.getUsers;
-    this.photoList=this.$store.getters.getPhotos;
-    if(this.listaUtenti.length!=0){
+    this.listaUtenti=this.$store.getters.getUsers;  //prendo la lista utenti dallo store
+    this.photoList=this.$store.getters.getPhotos;   //prendo la lista con le foto dallo store
+    if(this.listaUtenti.length!=0){  // se entrambe sono piene allora lo spinner si ferma e il contenuto compare
       if(this.photoList.length!=0){
         this.loaded=true;
+        console.log(this.$store.getters.getUsers);
       }
-      else{
+      else{ //se invece solo quella delle foto è vuota scarico quella 
         this.axios.get("http://localhost:3001/rest/v1/photo/")
         .then((response) => {
           this.$store.commit('setPhotos',response.data);
           this.photoList=this.$store.getters.getPhotos;
           this.loaded=true;
+          console.log(this.$store.getters.getUsers);
       })
       }
     }
     
-    else if(this.listaUtenti.length==0){
+    else if(this.listaUtenti.length==0){ // se invece è vuota anche quella degli utenti le scarico entrambe
       this.axios.get("http://localhost:3001/rest/v1/users/")
         .then( (response) => {
           this.$store.commit('setUsers',response.data);
@@ -64,19 +65,18 @@ export default class ClientList extends Vue {
               this.$store.commit('setPhotos',response.data);
             this.photoList=this.$store.getters.getPhotos;
             this.loaded=true;
+            console.log(this.$store.getters.getUsers);
         })
         })
   }
-  else{
-    this.listaUtenti=this.$store.getters.getUsers
-  }
+  
     }
     
 
-  filterList() {
+  filterList() { // filtro la lista ad ogni carattere inserito
     this.listaUtenti=this.$store.getters.getUsers;
       var users = this.listaUtenti.filter((user) => {
-        return user.name.toLowerCase().includes(this.search.toLowerCase());
+        return user.name.toLowerCase().match(this.search.toLowerCase());
   });;
   this.listaUtenti=users;
   }

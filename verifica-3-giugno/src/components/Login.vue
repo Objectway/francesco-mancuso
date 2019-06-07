@@ -27,7 +27,6 @@
     <div class="Login__modalButton">
       <button @click="accedi" > ACCEDI </button>
       <img v-if="loaded" src="https://siga.ana.gob.pa/pcus/images/spinner.gif">
-
     </div>
     <div class="Login__modalForgot">
        <div @click="recuperoPassword" >Recupera Password</div>
@@ -46,27 +45,25 @@ export default class Login extends Vue {
   public listaUtente:User[]=[];
   public loaded:boolean=false;
   created(){
+    console.log(this.$store.getters.getLogged)
   }
-
-  accedi(){
-
-    this.loaded=true;
-    this.listaUtente=this.$store.getters.getUsers;
-    if(this.listaUtente.length==0){
+  accedi(){             
+    this.loaded=true; //Al click del pulsante faccio spuntare lo spinner che ruoterà finchè non finirà la chiamata axios
+    this.listaUtente=this.$store.getters.getUsers; // vado a prendere la lista dallo store
+    if(this.listaUtente.length==0){   // se è la prima volta che si accede la lista è vuota vado a scaricarla
       this.axios.get("http://localhost:3001/rest/v1/users/")
         .then( (response) => {
           this.listaUtente=response.data;
-          this.loaded=true;
           this.listaUtente.forEach(element => {
-            if(element.username==this.username && element.address.zipcode==this.password){
+            if(element.username==this.username && element.address.zipcode==this.password){ // vado a verificare le condizioni e cambio la variabile che tiene conto del login
               this.$store.commit('setLogged',true);
             }
-            if(this.$store.getters.getLogged==true){
+            if(this.$store.getters.getLogged==true){ //se la variabile è true allora procede
               this.loaded=false;
               this.$router.push('/clientlist');
               }
-            else{
-                const input= document.querySelectorAll('input');
+            else{ // altrimenti do uno stile agli input per segnalare l'errore e aggiungo la scritta
+                const input= document.querySelectorAll('input'); 
                 for(let i=0;i<input.length;i++){
                 input[i].style.border="1px solid red";
                 this.loaded=false;
@@ -76,7 +73,7 @@ export default class Login extends Vue {
           });
         })
     }
-    else{
+    else{ //altrimenti se la lista esiste già vado direttamente a verificare le condizioni
       this.listaUtente.forEach(element => {
         if(element.username==this.username && element.address.zipcode==this.password){
           this.$store.commit('setLogged',true);
@@ -96,7 +93,7 @@ export default class Login extends Vue {
           });
     }
     }
-  recuperoPassword(){
+  recuperoPassword(){ // al click sul recupera password vado a fare un emit che verrà ricevuto dalla view LoginPage che farà cambiare il dynamic component
     this.$emit('recuperoPassword');
   }
   }
