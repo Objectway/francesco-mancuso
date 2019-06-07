@@ -1,6 +1,0 @@
-Come usare litelement con angular:
-1) Togliere (se c'è) il define dal webcomponent
-2) importare il webcomponent nel main.ts e definirlo lì
-3) importare nell'app module il CUSTOM_ELEMENTS_SCHEMA from @angular/core
-4) aggiungere nell'appmodule  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
-5) Se da l'errore "Cannot instantiate without 'new'" modificare nel tsconfig target:es6
